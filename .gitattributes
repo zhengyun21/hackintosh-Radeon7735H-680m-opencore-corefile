@@ -1,0 +1,6 @@
+﻿# 禁止对 kext 与引导二进制做换行/文本转换（防签名失效）
+EFI/OC/Kexts/** -text
+EFI/OC/Drivers/** binary
+EFI/BOOT/** binary
+*.efi binary
+*.aml binary
