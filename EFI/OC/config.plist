@@ -18,7 +18,7 @@
 				<key>Comment</key>
 				<string>Fake SBUS/MCHC device so AppleSMBusPCI loads</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-SBUS-MCHC.aml</string>
 			</dict>
@@ -34,7 +34,7 @@
 				<key>Comment</key>
 				<string>Boot-stage markers via ACPI Debug (diagnostic; disable after use)</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-OCMARK.aml</string>
 			</dict>
@@ -45,6 +45,14 @@
 				<false/>
 				<key>Path</key>
 				<string>SSDT-CPUR.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable XHC0-XHC4 for unhooked APIC vector isolation</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-XHC-OFF.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -100,7 +108,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				CExFTkIMAAAAAAhfU1RBCg8=
@@ -116,6 +124,240 @@
 				<key>Replace</key>
 				<data>
 				CExFTkIMAAAAAAhfU1RBCgA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag XHC ADR XHC0 -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4IMWEhDMAhfQURSCgM=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4IMWEhDMAhfQURSCv8=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag XHC ADR XHC1 -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4IMWEhDMQhfQURSCgQ=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4IMWEhDMQhfQURSCv8=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag XHC ADR XHC2 -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4ILWEhDMghfQURSAA==
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4ILWEhDMghfQURS/w==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag XHC ADR XHC3 -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4IMWEhDMwhfQURSCgM=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4IMWEhDMwhfQURSCv8=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag XHC ADR XHC4 -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4IMWEhDNAhfQURSCgQ=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4IMWEhDNAhfQURSCv8=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Diag VGA ADR -&gt; 0xFF</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				W4JDGlZHQV8IX0FEUgA=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				W4JDGlZHQV8IX0FEUv8=
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -149,16 +391,7 @@
 	<key>Booter</key>
 	<dict>
 		<key>MmioWhitelist</key>
-		<array>
-			<dict>
-				<key>Address</key>
-				<integer>4275568640</integer>
-				<key>Comment</key>
-				<string>AMD FCH SMBus PMIO window (panic CR2 0xFED802B0)</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-		</array>
+		<array/>
 		<key>Patch</key>
 		<array/>
 		<key>Quirks</key>
@@ -213,21 +446,18 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x8,0x1)</key>
+			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal@0,1</string>
 				<key>built-in</key>
 				<data>
-				AQAAAA==
+				AQ==
 				</data>
-				<key>device-id</key>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>built-in</key>
 				<data>
-				/3MAAA==
-				</data>
-				<key>vendor-id</key>
-				<data>
-				AhAAAA==
+				AQ==
 				</data>
 			</dict>
 		</dict>
@@ -264,13 +494,49 @@
 				<key>Comment</key>
 				<string>Disable AppleIntelMCEReporter on AMD</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>IOGraphicsFamily.kext</string>
+				<key>Comment</key>
+				<string>Apple I/O Graphics family extracted from BaseSystem KC (M7)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/IOGraphicsFamily</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>20.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>RDNA3Driver.kext</string>
+				<key>Comment</key>
+				<string>DO NOT ENABLE: nullarc-derived RDNA3 780M code, not a 680M driver</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/RDNA3Driver</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>22.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -354,7 +620,7 @@
 				<key>Comment</key>
 				<string>GPU framebuffer / boot-arg helpers</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/WhateverGreen</string>
 				<key>MaxKernel</key>
@@ -372,7 +638,7 @@
 				<key>Comment</key>
 				<string>Audio codec (Senary codec: likely unsupported)</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleALC</string>
 				<key>MaxKernel</key>
@@ -383,6 +649,24 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
+				<key>BundlePath</key>
+				<string>IONVMeFamily.kext</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/IONVMeFamily</string>
+				<key>MinKernel</key>
+				<string>20.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+			</dict>
+			<dict>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
@@ -390,7 +674,7 @@
 				<key>Comment</key>
 				<string>NVMe power management / quirks</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NVMeFix</string>
 				<key>MaxKernel</key>
@@ -562,6 +846,42 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>AppleUSBXHCIPCI.kext</string>
+				<key>Comment</key>
+				<string>Patched INTx AppleUSBXHCIPCI</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AppleUSBXHCIPCI</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>Radeon680MX6000Injector.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string>24.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -569,11 +889,91 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Comment</key>
-				<string>Disable AppleSMCRTC (SMCRTC stop hang)</string>
+				<string>BOOT-LAB | Disable AppleSMCRTC (RTC-stage watchdog restart)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleSMCRTC</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Strategy</key>
+				<string>Exclude</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Exclude IONVMeFamily for USB Recovery diagnostic</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IONVMeFamily</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Strategy</key>
+				<string>Exclude</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>Block USB packet filter (suspected hndl_allintr null handler source, 24.x)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Strategy</key>
+				<string>Exclude</string>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBHostPacketFilter</string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>Diagnostic XHCI isolation</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Strategy</key>
+				<string>Disable</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>Diagnostic XHCI isolation</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Strategy</key>
+				<string>Exclude</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Exclude AppleRTC for RTC-stage watchdog diagnostic</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Identifier</key>
+				<string>com.apple.driver.AppleRTC</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -1424,7 +1824,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				icCB4v//AP+BygAAAQC5dwIAAA==
@@ -1498,7 +1898,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				icCB4v//AP+BygAAAAAPMA==
@@ -1603,7 +2003,7 @@
 				<key>Base</key>
 				<string>__ZN16IOPlatformExpert25setCPUInterruptPropertiesEP9IOService</string>
 				<key>Comment</key>
-				<string>Diag 2026-10-24 | setCPUInterruptProperties waitForService timeout 1s (was infinite) | v1</string>
+				<string>BOOT-LAB | Diag 2026-10-24 | setCPUInterruptProperties waitForService timeout 1s (was infinite) | v1</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1639,11 +2039,11 @@
 				<key>Base</key>
 				<string>__ZN17IOPCIConfigurator9configureEj</string>
 				<key>Comment</key>
-				<string>Diag 2026-10-26 | keep PE screen on during IOPCIConfigurator::configure (visible PCI DLOG) | v1</string>
+				<string>UI-LAB | disabled verbose PE console relocation</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				ugcAAAD/kfAIAAA=
@@ -1675,11 +2075,11 @@
 				<key>Base</key>
 				<string>__ZN17IOPCIConfigurator23bridgeAllocateResourcesEP16IOPCIConfigEntryj</string>
 				<key>Comment</key>
-				<string>Diag 2026-10-26 | skip early applyConfiguration in bridgeAllocateResources (window writes before allocation) | v1</string>
+				<string>BOOT-LAB | Diag 2026-10-26 | skip early applyConfiguration in bridgeAllocateResources (window writes before allocation) | v1</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				RInqMcnoUxgAAA==
@@ -1761,7 +2161,7 @@
 				<key>Base</key>
 				<string>__ZN19IOPCIHostBridgeData26restartPowerAssertionTimerEv</string>
 				<key>Comment</key>
-				<string>Diag 2026-10-27 | no-op restartPowerAssertionTimer (host-bridge PM assertion workloop stalls the publish pipeline right at its DLOG) | v1</string>
+				<string>BOOT-LAB | Diag 2026-10-27 | no-op restartPowerAssertionTimer (host-bridge PM assertion workloop stalls the publish pipeline right at its DLOG) | v1</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1797,14 +2197,14 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>Diag 2026-10-27 | no-op restartPowerAssertionTimer block body (kills PM assertion timer on ALL paths, incl. inlined childPublished) | v2</string>
+				<string>BOOT-LAB | Diag 2026-10-27 | no-op restartPowerAssertionTimer block body (kills PM assertion timer on ALL paths, incl. inlined childPublished) | v2</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
-				VUiJ5UFWU0iLXyDoS/0k/g==
+				VUiJ5UFWU0iLXyDoe8Ek/g==
 				</data>
 				<key>Identifier</key>
 				<string>com.apple.iokit.IOPCIFamily</string>
@@ -1820,6 +2220,294 @@
 				<key>Replace</key>
 				<data>
 				McDDkJCQkJCQkJCQkJCQkA==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>Force INTx (kIOInterruptTypeLevel=1) instead of MSI (0xff) in AppleUSBXHCIPCI interrupt source creation - AMD USB4 XHCI null handler fix</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				uv8AAAA=
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>25.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				ugEAAAA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>XHCI force create interrupt source (bypass conditional skip)</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				gLvQDgAAAQ+F1gEAAA==
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>25.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				gLvQDgAAAZCQkJCQkA==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>XHCI UD2 @ create-interrupt-source call 0x5671 (fdd69960, MSI edx=0xff) - probe if 0x5556 create fn is ever reached by AMD</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				uv8AAABIidlNifjo6kLW/Q==
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>25.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				uv8AAABIidlNifgPC5CQkA==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN15AppleUSBXHCIPCI9regRead32Eyj</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Diag 2026-11-09 | AppleUSBXHCIPCI regRead32 return 0</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				i4ewAgAA
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>25.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				McDDkJCQ
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN16IONVMeController12PollRegisterEjjjjjjPj</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Diag 2026-11-10 | IONVMe PollRegister skip null mapper call</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				/5B4DAAA
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IONVMeFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>25.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				uP////+Q
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN17IOPCIConfigurator24deviceApplyConfigurationEP16IOPCIConfigEntryjb</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Diag 2026-11-10 | deviceApplyConfiguration return immediately</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				VUiJ5UFXQVY=
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IOPCIFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>24.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				w5CQkJCQkJA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN17IOPCIConfigurator24deviceApplyConfigurationEP16IOPCIConfigEntryjb</string>
+				<key>Comment</key>
+				<string>PCI-LAB | Diag 2026-11-10 | skip deviceApplyConfiguration for 1002:1681</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				VUiJ5UFXQVZBVUFUU0iD7DhBidRIifOJTciFyUiJfdA=
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IOPCIFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>24.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				gX40gRYCEHUBw1VIieVBV0FWQVVBVFNIg+w46fH///8=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN17IOPCIConfigurator24bridgeApplyConfigurationEP16IOPCIConfigEntryjb</string>
+				<key>Comment</key>
+				<string>BOOT-LAB | Diag 2026-11-10 | bridgeApplyConfiguration return immediately</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				VUiJ5UFXQVY=
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IOPCIFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>24.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				w5CQkJCQkJA=
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -1865,7 +2553,7 @@
 			<key>LegacyCommpage</key>
 			<false/>
 			<key>PanicNoKextDump</key>
-			<true/>
+			<false/>
 			<key>PowerTimeoutKernelPanic</key>
 			<true/>
 			<key>ProvideCurrentCpuInfo</key>
@@ -1875,7 +2563,7 @@
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -1906,7 +2594,7 @@
 			<key>InstanceIdentifier</key>
 			<string></string>
 			<key>LauncherOption</key>
-			<string>Disabled</string>
+			<string>Full</string>
 			<key>LauncherPath</key>
 			<string>Default</string>
 			<key>PickerAttributes</key>
@@ -1924,7 +2612,7 @@
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
-			<integer>8</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Debug</key>
 		<dict>
@@ -1946,11 +2634,28 @@
 			<integer>67</integer>
 		</dict>
 		<key>Entries</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<string>-v</string>
+				<key>Comment</key>
+				<string>15.8.2 (24H232) BootKC 24.6.0</string>
+				<key>Name</key>
+				<string>Recovery 24.6.0</string>
+				<key>Path</key>
+				<string>\com.apple.recovery.boot\System\Library\CoreServices\boot.efi</string>
+				<key>Auxiliary</key>
+				<false/>
+				<key>Enabled</key>
+				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+		</array>
 		<key>Security</key>
 		<dict>
-			<key>AllowNvramReset</key>
-			<true/>
 			<key>AllowSetDefault</key>
 			<true/>
 			<key>ApECID</key>
@@ -2036,8 +2741,8 @@
 				</data>
 				<key>boot-args</key>
 				<data>
-				LXYga2VlcHN5bXM9MSBkZWJ1Zz0weDEwMCBhbGNpZD0x
-				MSAtbm9fY29tcGF0X2NoZWNrIG52bWU9LTE=
+				a2VlcHN5bXM9MSAtbm9fY29tcGF0X2NoZWNrIC1ub19y
+				ZXN0YXJ0IG9jdWkx
 				</data>
 				<key>csr-active-config</key>
 				<data>
@@ -2092,7 +2797,7 @@
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>MacPro7,1</string>
+			<string>iMacPro1,1</string>
 			<key>SystemSerialNumber</key>
 			<string></string>
 			<key>SystemUUID</key>
