@@ -54,6 +54,14 @@
 				<key>Path</key>
 				<string>SSDT-XHC-OFF.aml</string>
 			</dict>
+			<dict>
+				<key>Path</key>
+				<string>SSDT-PLUG-ALT-16CPU.aml</string>
+				<key>Comment</key>
+				<string>UI-DEBUG | legacy Processor objects for 16 MADT CPUs</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array/>
@@ -672,15 +680,33 @@
 				<key>BundlePath</key>
 				<string>NVMeFix.kext</string>
 				<key>Comment</key>
-				<string>NVMe power management / quirks</string>
+				<string>NVMe power-management support for nvme=-1 profile</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NVMeFix</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string>8.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>AmdTscSync.kext</string>
+				<key>Comment</key>
+				<string>TSC sync across all AMD CPU cores</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AmdTscSync</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -907,7 +933,7 @@
 				<key>Comment</key>
 				<string>BOOT-LAB | Exclude IONVMeFamily for USB Recovery diagnostic</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Identifier</key>
 				<string>com.apple.iokit.IONVMeFamily</string>
 				<key>MaxKernel</key>
@@ -971,7 +997,7 @@
 				<key>Comment</key>
 				<string>BOOT-LAB | Exclude AppleRTC for RTC-stage watchdog diagnostic</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleRTC</string>
 				<key>MaxKernel</key>
@@ -2007,7 +2033,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				SYnHSInHSMfG/////zHS6A==
@@ -2039,7 +2065,7 @@
 				<key>Base</key>
 				<string>__ZN17IOPCIConfigurator9configureEj</string>
 				<key>Comment</key>
-				<string>UI-LAB | disabled verbose PE console relocation</string>
+				<string>UI-DEBUG | keep firmware console during verbose PCI</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -2079,7 +2105,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				RInqMcnoUxgAAA==
@@ -2165,7 +2191,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				VUiJ5UiD7DBIi4egAAAASA==
@@ -2201,7 +2227,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				VUiJ5UFWU0iLXyDoe8Ek/g==
@@ -2345,7 +2371,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				i4ewAgAA
@@ -2381,7 +2407,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				/5B4DAAA
@@ -2417,7 +2443,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				VUiJ5UFXQVY=
@@ -2449,7 +2475,7 @@
 				<key>Base</key>
 				<string>__ZN17IOPCIConfigurator24deviceApplyConfigurationEP16IOPCIConfigEntryjb</string>
 				<key>Comment</key>
-				<string>PCI-LAB | Diag 2026-11-10 | skip deviceApplyConfiguration for 1002:1681</string>
+				<string>HYBRID-LAB | TARGET-LAB | Diag 2026-11-10 | skip deviceApplyConfiguration for 1002:1681</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -2485,11 +2511,11 @@
 				<key>Base</key>
 				<string>__ZN17IOPCIConfigurator24bridgeApplyConfigurationEP16IOPCIConfigEntryjb</string>
 				<key>Comment</key>
-				<string>BOOT-LAB | Diag 2026-11-10 | bridgeApplyConfiguration return immediately</string>
+				<string>BOOT-LAB | HYBRID-LAB | Diag 2026-11-10 | bridgeApplyConfiguration return immediately</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				VUiJ5UFXQVY=
@@ -2508,6 +2534,42 @@
 				<key>Replace</key>
 				<data>
 				w5CQkJCQkJA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN17IOPCIConfigurator24bridgeApplyConfigurationEP16IOPCIConfigEntryjb</string>
+				<key>Comment</key>
+				<string>TARGET-LAB | bridgeApplyConfiguration skip only 1022:14b9</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				VUiJ5UFXQVZBVUFUU0iD7DhBiddJifGJTcSFyUiJdcg=
+				</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IOPCIFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>MaxKernel</key>
+				<string>24.99.99</string>
+				<key>MinKernel</key>
+				<string>24.0.0</string>
+				<key>Replace</key>
+				<data>
+				gX40IhC5FHUBw1VIieVBV0FWQVVBVFNIg+w4QYnXSYk=
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -2741,8 +2803,9 @@
 				</data>
 				<key>boot-args</key>
 				<data>
-				a2VlcHN5bXM9MSAtbm9fY29tcGF0X2NoZWNrIC1ub19y
-				ZXN0YXJ0IG9jdWkx
+				LXYga2VlcHN5bXM9MSBkZWJ1Zz0weDE0NCAtbm9fY29t
+				cGF0X2NoZWNrIC1ub19yZXN0YXJ0IG52bWU9LTEgcGNp
+				PTB4MSBrZXh0bG9nPTB4ZmZmZiBvY2NsZWFuMQ==
 				</data>
 				<key>csr-active-config</key>
 				<data>
@@ -2791,6 +2854,7 @@
 			<integer>0</integer>
 			<key>ROM</key>
 			<data>
+			AAAAAAAA
 			</data>
 			<key>SpoofVendor</key>
 			<true/>
