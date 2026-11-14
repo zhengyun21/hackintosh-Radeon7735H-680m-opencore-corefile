@@ -1,6 +1,6 @@
 # Hackintosh — 机械革命 无界14 2023（R7-7735H / Radeon 680M）
 
-**OpenCore 1.0.8 引导配置 · 完整折腾记录 · 当前状态：已进入 Recovery，鼠标经 xHCI 修复后可用**
+**OpenCore 1.0.8 引导配置 · 完整折腾记录 · 当前状态：Recovery、USB 与内部 NVMe 均已可用，等待安装 macOS**
 
 ---
 
@@ -16,7 +16,7 @@
 | 网卡 | RZ608（Wi-Fi 6E） |
 | BIOS | 2.22.1282（无 NVMe 禁用项、无 PCIe 速度选项） |
 
-## 成果进展（截至 2026-11-13）
+## 成果进展（截至 2026-11-14）
 
 | 项目 | 状态 | 说明 |
 |---|---|---|
@@ -26,6 +26,7 @@
 | **完整 Recovery** | ✅ 已完成 | `BaseSystem.dmg` 与 chunklist 下载完成，并通过 85 个 Apple chunk |
 | **Recovery 启动** | ✅ 已通过 | 成功进入 macOS Sequoia 恢复主菜单 |
 | **USB 输入** | ✅ 已修复 | USBToolBox 端口映射 + AppleUSBXHCI interrupter 1→0，鼠标移动已可用 |
+| **内部 NVMe** | ✅ 已识别 | 移除 `nvme=-1` 后，Fanxiang S690 1TB 与 Intel 512GB 均显示在磁盘工具 |
 | **macOS 安装** | ⏳ 待继续 | Recovery 已可操作，下一步创建 APFS 分区并安装 |
 | **GPU / WindowServer** | ⚠️ WIP | `AMDRadeonX6000` / `RDNA3Driver` 均未作为稳定驱动启用 |
 | **NVMe 历史解法** | ✅ 已归档 | 旧配置曾用 `nvme=-1` 解决 IONVMeFamily panic |
@@ -55,8 +56,9 @@
 
 | 项 | 值 | 作用 |
 |---|---|---|
-| boot-args | `keepsyms=1 -no_compat_check -no_restart nvme=-1 ocxhci1` | 当前 Recovery / 可用鼠标里程碑 |
+| boot-args | `-v keepsyms=1 debug=0x144 -no_compat_check -no_restart kextlog=0xffff ocnvme2` | 当前 Recovery / NVMe 识别里程碑 |
 | Kernel/Patch | 标准 AMD 补丁 + 6 个 XHCI interrupter 1→0 | 修复 AMD xHCI 连续输入事件延迟 |
+| Kernel/Block | `IONVMeFamily` 不屏蔽 | 允许内部 NVMe 发布 block storage device |
 | Kernel/Quirks | `DisableIoMapper=True` | 必需（AMD 平台） |
 | 启用 kext | Lilu / AppleMCEReporterDisabler / VirtualSMC / NVMeFix / AmdTscSync / AirportItlwm / USBToolBox / UTBMap | 二进制 kext 未提交，README 记录用途和版本 |
 | 启用 ACPI | SSDT-EC-USBX / SSDT-PLUG-ALT-16CPU | 其余 XHC/APSP/OCMARK 诊断项已关闭 |
@@ -80,9 +82,12 @@ verbose console relocation 卡死 → 清理 XHC/APSP ACPI 诊断拓扑 → 精�
 ### 2026-11-13 Recovery 与 USB 输入里程碑
 补齐 `BaseSystem.dmg` → 进入 Sequoia Recovery → USBToolBox 映射全部 16 个端口 → 发现 AMD XHCI 仅有一个实际 MSI，而 macOS 普通 TRB 指向 interrupter 1 → 将 6 类 TRB 的 interrupter target 改成 0 → 鼠标连续移动从严重积压恢复到可用。
 
+### 2026-11-14 内部 NVMe 里程碑
+磁盘工具仅显示内存镜像 → `kextstat`/`ioreg` 确认 IONVMeFamily 已加载且两个控制器 active → 未发布 block storage device → 移除 `nvme=-1` → 两块内部 NVMe 均被磁盘工具识别。
+
 ## 结论
 
-当前 OpenCore、内核、AppleAPIC、PCI、存储栈、Recovery 和 USB 输入均已验证。AMD xHCI interrupter 修复解决了点击正常但连续移动严重落后的典型问题。下一步是在 Recovery 中创建 APFS 分区、安装 macOS，再继续 680M 原生 X6000 驱动。NootedRed 仍不支持 Rembrandt RDNA2，`RDNA3Driver` 也不能直接驱动 `1002:1681`。
+当前 OpenCore、内核、AppleAPIC、PCI、Recovery、USB 输入和内部 NVMe 均已验证。`nvme=-1` 虽解决旧 IONVMe panic，但会阻止当前 Recovery 发布 NVMe 存储设备；`nvme-test / ocnvme2` 是当前工作基线。下一步是在 Fanxiang 约 273 GB 分区上创建 APFS 并安装 macOS，再继续 680M 原生 X6000 驱动。NootedRed 仍不支持 Rembrandt RDNA2，`RDNA3Driver` 也不能直接驱动 `1002:1681`。
 
 本仓库为**全量方案存档**：将来换独显（AMD RX 6000 系）或换机器后，EFI + `nvme=-1` 解法 + 镜像下载工具可直接复用。`docs/config-backups/` 含 36 个分阶段配置备份，可回溯每一步改动。
 
